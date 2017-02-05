@@ -37,9 +37,12 @@ ui <- fluidPage(
    
    # Application title
    titlePanel("Explore the titles of archaeology articles from Scopus"),
-   p(paste0("The data are ", prettyNum(nrow(scopus_data), 
-                                       big.mark = ","),
-            " articles obtained from Scopus by searching for 'archaeology' in the Social Science subject area on 1 Feb 2017")),
+   withTags({
+     div(class = "paragraph", checked=NA,
+         p(paste0("The data are ", prettyNum(nrow(scopus_data), 
+                                             big.mark = ","),
+                  " articles obtained from Scopus by searching for 'archaeology' in the Social Science subject area on 1 Feb 2017. All code and data are available at ")),
+         a(href = "https://github.com/benmarwick/scopusarchaeology", "https://github.com/benmarwick/scopusarchaeology"))}),
    
   
       
