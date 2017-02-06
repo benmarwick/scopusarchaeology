@@ -11,6 +11,11 @@
 #-------------------------------------------------------
 # things we want globally
 
+packages <- c("plyr", "dplyr", "purrr", "ggplot2", "tidytext", "wordcloud", "viridis", "DT")
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdiff(packages, rownames(installed.packages())))  
+}
+
 library(plyr)
 library(dplyr)
 library(purrr)
@@ -42,7 +47,8 @@ ui <- fluidPage(
          p(paste0("The data are ", prettyNum(nrow(scopus_data), 
                                              big.mark = ","),
                   " articles obtained from Scopus by searching for 'archaeology' in the Social Science subject area on 1 Feb 2017. All code and data are available at ")),
-         a(href = "https://github.com/benmarwick/scopusarchaeology", "https://github.com/benmarwick/scopusarchaeology"))}),
+         a(href = "https://github.com/benmarwick/scopusarchaeology", 
+           "https://github.com/benmarwick/scopusarchaeology"))}),
    
   
       

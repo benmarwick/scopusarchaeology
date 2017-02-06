@@ -11,6 +11,11 @@
 #-------------------------------------------------------
 # things we want globally
 
+packages <- c("plyr", "dplyr", "purrr", "ggplot2", "tidytext", "wordcloud", "viridis", "DT")
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdiff(packages, rownames(installed.packages())))  
+}
+
 library(plyr)
 library(dplyr)
 library(purrr)
